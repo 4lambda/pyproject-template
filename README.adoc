@@ -9,13 +9,13 @@ ifdef::env-github[]
 :warning-caption: :warning:
 endif::[]
 
-A repository for foo.
+A repository for @@MYPROJECT@@.
 
 == Python
 
 === Usage
 
-==== Building and using `foo`
+==== Building and using `@@MYPROJECT@@`
 
 * With `pip`
 +
@@ -33,7 +33,7 @@ python -m build
 python -m pip install ./dist/*.whl
 ----
 
-==== Using `foo` in another project
+==== Using `@@MYPROJECT@@` in another project
 
 
 * Install
@@ -45,33 +45,33 @@ python -m pip install ./dist/*.whl
 python3 -m pip install .
 
 # From the Git URL
-python3 -m pip install git+https://github.com/bar/foo.git
+python3 -m pip install git+https://github.com/bar/@@MYPROJECT@@.git
 
 # From the Git URL from a branch
-python3 -m pip install git+https://github.com/bar/foo.git@main
+python3 -m pip install git+https://github.com/bar/@@MYPROJECT@@.git@main
 
 # From the Git URL from tag
-python3 -m pip install git+https://github.com/bar/foo.git@v0.0.2
+python3 -m pip install git+https://github.com/bar/@@MYPROJECT@@.git@v0.0.2
 ----
 
-==== Importing `foo`
+==== Importing `@@MYPROJECT@@`
 
 Import into another Python script or module with a standard `import` call:
 [source,python]
 ----
-import foo
+import @@MYPROJECT@@
 ----
 
-Look below for examples using the `foo` in `pyproject.toml`, `setup.py`, and `requirements.txt` based projects.
+Look below for examples using the `@@MYPROJECT@@` in `pyproject.toml`, `setup.py`, and `requirements.txt` based projects.
 
 For more information regarding VCS versioning and dependency managment, see the following references
 
 - https://setuptools.pypa.io/en/latest/userguide/dependency_management.html[Setuptools Dependency Management]
 - pip's documentation on https://pip.pypa.io/en/latest/topics/vcs-support/[VCS support]
 
-==== Using the `foo` OS Package
+==== Using the `@@MYPROJECT@@` OS Package
 
-foo is offered as an OS package (an `rpm`), this package installs @@MYPROJECT@@ and its dependencies into
+@@MYPROJECT@@ is offered as an OS package (an `rpm`), this package installs @@MYPROJECT@@ and its dependencies into
 a virtual environment on the system. The package will depend on a flavor of the `python-base` package
 respective to the distribution being used.
 
@@ -79,28 +79,28 @@ respective to the distribution being used.
 +
 [source,bash]
 ----
-zypper --plus-repo=https://artifactory.algol60.net/artifactory/csm-rpms/hpe/stable/sle-$(awk -F= '/VERSION=/{gsub(/["-]/, "") ; print tolower($NF)}' /etc/os-release)/ --no-gpg-checks in foo
+zypper --plus-repo=https://artifactory.algol60.net/artifactory/csm-rpms/hpe/stable/sle-$(awk -F= '/VERSION=/{gsub(/["-]/, "") ; print tolower($NF)}' /etc/os-release)/ --no-gpg-checks in @@MYPROJECT@@
 ----
-. Then use `foo`.
+. Then use `@@MYPROJECT@@`.
 - Activate the virtual environment
 +
 [source,bash]
 ----
-source /usr/lib/foo/python/bin/activate
+source /usr/lib/@@MYPROJECT@@/python/bin/activate
 ----
 - Use the package ad-hoc in a Python interpreter:
 +
 [source,bash]
 ----
-/usr/lib/foo/python/bin/python
+/usr/lib/@@MYPROJECT@@/python/bin/python
 ----
 +
 [source,python]
 ----
-import foo
+import @@MYPROJECT@@
 ----
 
-===== Importing `foo` with a `pyproject.toml` or `setup.py` file
+===== Importing `@@MYPROJECT@@` with a `pyproject.toml` or `setup.py` file
 
 For `setup.py` files, the GitHub source can be included in another project by adding a `dependency_links=[]` parameter in the `setup()` function call.
 
@@ -111,9 +111,9 @@ For `setup.py` files, the GitHub source can be included in another project by ad
 [project]
 # ...
 dependencies = [
-    "foo @ git+https://github.com/bar/@@MYPROJECT@@.git@main",
-    "foo @ git+https://github.com/bar/@@MYPROJECT@@.git@v1.0.2",
-    "foo @ git+https://github.com/bar/@@MYPROJECT@@.git@eleases/tag/v1.0.1",
+    "@@MYPROJECT@@ @ git+https://github.com/bar/@@MYPROJECT@@.git@main",
+    "@@MYPROJECT@@ @ git+https://github.com/bar/@@MYPROJECT@@.git@v1.0.2",
+    "@@MYPROJECT@@ @ git+https://github.com/bar/@@MYPROJECT@@.git@eleases/tag/v1.0.1",
 ]
 ----
 * `setup.py` by branch name, git-tag, or git release
@@ -124,14 +124,14 @@ setup(
     # ...
     install_requires=[
         # ...
-        "foo @ git+https://github.com/bar/@@MYPROJECT@@.git@main",
-        "foo @ git+https://github.com/bar/@@MYPROJECT@@.git@v1.0.2",
-        "foo @ git+https://github.com/bar/@@MYPROJECT@@.git@eleases/tag/v1.0.1",
+        "@@MYPROJECT@@ @ git+https://github.com/bar/@@MYPROJECT@@.git@main",
+        "@@MYPROJECT@@ @ git+https://github.com/bar/@@MYPROJECT@@.git@v1.0.2",
+        "@@MYPROJECT@@ @ git+https://github.com/bar/@@MYPROJECT@@.git@eleases/tag/v1.0.1",
     ],
 ),
 ----
 
-===== Importing `foo` with a `requirements.txt` file
+===== Importing `@@MYPROJECT@@` with a `requirements.txt` file
 
 Add a line like the ones below to a `requirements.txt` file.
 
@@ -139,19 +139,19 @@ Add a line like the ones below to a `requirements.txt` file.
 +
 [source,python]
 ----
-git+git://github.com/bar/foo.git@master#egg=@@MYPROJECT@@
+git+git://github.com/bar/@@MYPROJECT@@.git@master#egg=@@MYPROJECT@@
 ----
 * By git tag
 +
 [source,python]
 ----
-git+git://github.com/bar/foo.git@v1.0.2#egg=@@MYPROJECT@@
+git+git://github.com/bar/@@MYPROJECT@@.git@v1.0.2#egg=@@MYPROJECT@@
 ----
 * By release
 +
 [source,python]
 ----
-git+git://github.com/bar/foo.git@releases/tag/v1.0.1#egg=@@MYPROJECT@@
+git+git://github.com/bar/@@MYPROJECT@@.git@releases/tag/v1.0.1#egg=@@MYPROJECT@@
 ----
 
 === Contributing
@@ -163,21 +163,21 @@ Contributions can be in the form of:
 
 ==== Adding new commands
 
-When a new or existing module of `foo` wants to offer a command line function an `entry_point` can be used.
+When a new or existing module of `@@MYPROJECT@@` wants to offer a command line function an `entry_point` can be used.
 
-For example, if we wanted a command called `example-do-stuff` to exist on the command line that invoked some code within a `foo` submodule like the
+For example, if we wanted a command called `example-do-stuff` to exist on the command line that invoked some code within a `@@MYPROJECT@@` submodule like the
 code below:
 
 [source,python]
 ----
-# file: ./foo/example/service.py
+# file: ./@@MYPROJECT@@/example/service.py
 def do_stuff() -> None:
     thing = 'cool stuff'
     print(f'Doing {thing}')
-    foo(thing)
+    @@MYPROJECT@@(thing)
 
-def foo(stuff: str) -> None:
-    with open('/tmp/foo', 'w') as file:
+def @@MYPROJECT@@(stuff: str) -> None:
+    with open('/tmp/@@MYPROJECT@@', 'w') as file:
         file.write(f'finished doing {stuff}')
 ----
 
@@ -186,6 +186,6 @@ Then we could add an Entry Point to the `entry_points.ini` file
 [source,ini]
 ----
 [console_scripts]
-example-do-stuff = 'foo.example.service:do_stuff'
+example-do-stuff = '@@MYPROJECT@@.example.service:do_stuff'
 ----
 
