@@ -1,7 +1,31 @@
 #!/bin/sh
 set -eu
 
-if [ -z "${GITHUB_PROJECT_NAME:-''}" ] || [ -z "${GITHUB_ORG_NAME:-''}" ]; then
+function usage {
+  cat << EOF
+Template script for replacing occurances of @@MYPROJECT@@ and @@MYORG@@ with
+desired strings.
+
+Deletes itself on a successful run.
+
+usage:
+
+    GITHUB_PROJECT_NAME=foo GITHUB_ORG_NAME=baz $0
+
+EOF
+  return 1
+}
+
+GITHUB_PROJECT_NAME="${GITHUB_PROJECT_NAME:-}"
+GITHUB_ORG_NAME="${GITHUB_ORG_NAME:-}"
+help="${1:-}"
+
+if [ -n "${help}" ]; then
+  usage
+  exit 2
+fi
+
+if [ -z "${GITHUB_PROJECT_NAME}" ] || [ -z "${GITHUB_ORG_NAME}" ]; then
   echo >&2 "Missing GITHUB_PROJECT_NAME or GITHUB_ORG_NAME in environment."
   exit 1
 fi
