@@ -22,7 +22,7 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 [project]
-name = 'foo'
+name = '@@MYPROJECT@@'
 authors = [
     { name = 'Alice Smith', email = 'alice.smith@example.com' },
 ]
@@ -44,7 +44,7 @@ maintainers = [
 requires-python = '>=3.9'
 
 [metadata]
-url = 'https://github.com/Cray-HPE/foo'
+url = 'https://github.com/@@MYORG@@/@@MYPROJECT@@'
 
 license = { file = 'LICENSE' }
 
@@ -73,8 +73,8 @@ test = [
 
 # Defines which folders belong to our package.
 [tool.setuptools.packages.find]
-include = ["foo*"]
-exclude = ["foo.tests*"]
+include = ["@@MYPROJECT@@*"]
+exclude = ["@@MYPROJECT@@.tests*"]
 
 [tool.setuptools.dynamic]
 entry-points = { file = ['entry_points.ini'] }

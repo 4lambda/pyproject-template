@@ -59,7 +59,7 @@ else:
 
 COVERAGE_FAIL = 85
 ERROR_ON_GENERATE = True
-locations = 'foo'
+locations = '@@MYPROJECT@@'
 nox.options.sessions = 'test', 'docs', 'lint', 'cover'
 
 

@@ -23,4 +23,4 @@
 #
 include README.adoc
 include LICENSE
-prune foo/tests
+prune @@MYPROJECT@@/tests

@@ -5,7 +5,7 @@ on:
     workflow_dispatch:
 
 env:
-  TARGET_REPO: Cray-HPE/fawkes
+  TARGET_REPO: @@MYORG@@/fawkes
   TARGET_REPO_BRANCH: main
   TARGET_REPO_WORKFLOW: 62399976  # 'Publish Docs to Github Pages'
 
