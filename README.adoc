@@ -11,6 +11,8 @@ endif::[]
 
 A repository for @@MYPROJECT@@.
 
+For information regarding versioning, see link:VERSIONING.adoc[Versioning].
+
 == Python
 
 === Usage
