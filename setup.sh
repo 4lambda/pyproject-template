@@ -1,7 +1,8 @@
 #!/bin/sh
 set -eu
 
-function usage {
+usage() {
+
   cat << EOF
 Template script for replacing occurances of @@MYPROJECT@@ and @@MYORG@@ with
 desired strings.
