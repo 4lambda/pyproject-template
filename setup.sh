@@ -41,7 +41,7 @@ find . \( -type d -name .git -prune \) -o -type f -print0 | LC_ALL=C xargs -0 se
 
 find . \( -type d -name .git -prune \) -o -type f -print0 | LC_ALL=C xargs -0 sed -i '' 's/@@MYORG@@/'"$GITHUB_ORG_NAME"'/'
 
-github_project_name_lc=$(echo $GITHUB_PROJECT_NAME | tr '[:upper:]' '[:lower:]')
+github_project_name_lc=$(echo "$GITHUB_PROJECT_NAME" | tr '[:upper:]' '[:lower:]')
 mv myapp.spec "${github_project_name_lc}.spec"
 mv myapp "${GITHUB_PROJECT_NAME}"
 
