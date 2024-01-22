@@ -44,7 +44,5 @@ github_project_name_lc=$(echo $GITHUB_PROJECT_NAME | tr '[:upper:]' '[:lower:]')
 mv myapp.spec "${github_project_name_lc}.spec"
 mv myapp "${GITHUB_PROJECT_NAME}"
 
-echo "Finished renmaing template; removing $0"
+echo "Finished renaming template; removing $0"
 rm -f "$0" && git rm "$0"
-
-
